@@ -35,3 +35,8 @@ Git and GitHub
 Project Status
 
 Currently under development.
+
+## Development Progress
+
+- [x] Day 1: Project scope and business requirements
+- [ ] Day 2: Development environment setup
