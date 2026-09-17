@@ -307,4 +307,57 @@ Severity: High
 
 DQ022 - Negative denial amount
 Severity: High
+---
 
+## 11. Action Center Concept
+
+The Action Center will prioritize issues requiring analyst investigation.
+
+### Initial Issue Categories
+
+1. Filing Limit Risk
+
+Claims with significant outstanding balances that are approaching their filing limit.
+
+2. High-Value Outstanding AR
+
+Large outstanding balances that remain unresolved for a significant period.
+
+3. Possible Payment Discrepancy
+
+Payments that appear inconsistent with expected financial values.
+
+4. Denial Increase
+
+Denial categories, payers or providers showing unusual increases.
+
+5. Duplicate Transaction Risk
+
+Potential duplicate claims or payment transactions.
+
+6. Orphan Transaction
+
+Payments or denials without a valid parent claim.
+
+7. Data Quality Failure
+
+Critical records that cannot safely move into the analytics layer.
+
+### Priority Levels
+
+Critical
+
+High
+
+Medium
+
+Low
+
+Priority will eventually consider:
+
+- financial exposure
+- age
+- filing-limit proximity
+- denial status
+- data-quality severity
+- anomaly indicators
