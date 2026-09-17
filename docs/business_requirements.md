@@ -1,557 +1,232 @@
-# RevenueGuard AI — Business Requirements
+# RevenueGuard — Business Requirements
 
-## 1. Project Title
+## 1. Project Overview
 
-**RevenueGuard AI: Automated Healthcare Revenue Cycle Analytics and Denial Intelligence Platform**
+RevenueGuard is an end-to-end Revenue Cycle Intelligence, Data Quality and Investigation Platform.
 
----
+The project uses synthetic healthcare revenue-cycle data to demonstrate practical data analytics skills including:
 
-## 2. Project Overview
+- data generation
+- data validation
+- data cleaning
+- relational data modelling
+- SQL analysis
+- Python analytics
+- revenue analysis
+- accounts receivable analysis
+- denial analysis
+- payment reconciliation
+- anomaly detection
+- Power BI reporting
+- business prioritization
 
-RevenueGuard AI is an end-to-end healthcare revenue-cycle analytics and automation platform.
-
-The system will process synthetic healthcare claims, payments, denials and accounts-receivable data using Python, PostgreSQL, SQL and Power BI.
-
-It will automate data ingestion, validation, cleaning, reconciliation, KPI calculation, claim prioritisation and business-intelligence reporting.
-
-The project will demonstrate how raw healthcare billing data can be transformed into accurate, actionable and automated insights for financial and operational decision-making.
-
----
-
-## 3. Problem Statement
-
-Healthcare revenue-cycle teams process large volumes of claims, payment, denial and patient-account data.
-
-This information may come from multiple systems and files. The files may contain missing values, duplicate records, inconsistent formats, incorrect dates and financial differences.
-
-Analysts often spend significant time manually:
-
-* Combining billing files
-* Cleaning and validating data
-* Reconciling claims and payments
-* Calculating accounts-receivable KPIs
-* Investigating denied claims
-* Identifying underpayments
-* Preparing follow-up worklists
-* Building recurring management reports
-* Checking whether data is complete and accurate
-
-These manual activities can be slow and difficult to repeat consistently. They may also increase the risk of reporting errors, missed claims and delayed follow-up.
-
-RevenueGuard AI will address this problem by creating an automated and repeatable analytics pipeline.
-
-The system will validate incoming data, load clean information into a structured database, calculate healthcare revenue-cycle KPIs, identify exceptions and display the results in interactive Power BI dashboards.
+The final goal is not only to show what happened, but to identify which issues require investigation and why.
 
 ---
 
-## 4. Project Goal
+## 2. Business Problem
 
-The main goal is to build a reliable healthcare revenue-cycle analytics solution that reduces repetitive manual work and improves visibility into financial and operational performance.
+Revenue-cycle teams manage large volumes of claims, payments and denials.
 
-The project will demonstrate skills in:
+Business problems may include:
 
-* Python automation
-* SQL development
-* PostgreSQL database design
-* Data cleaning and transformation
-* Data validation
-* Financial reconciliation
-* Healthcare revenue-cycle analytics
-* Power BI data modelling
-* DAX calculations
-* Dashboard development
-* Pipeline logging
-* Testing
-* Git version control
-* Technical documentation
+- high outstanding accounts receivable
+- aging claims
+- increasing denial rates
+- delayed payments
+- payment discrepancies
+- underpayments
+- duplicate payments
+- missing payments
+- incorrect or incomplete records
+- claims approaching filing limits
+- revenue that may be at risk
 
----
+When data quality is poor, reporting can also become unreliable.
 
-## 5. Project Objectives
-
-The project will:
-
-1. Generate realistic synthetic healthcare claims, payment and denial data.
-
-2. Automatically identify new source files placed in an incoming-data folder.
-
-3. Validate source-file names, structures, columns and data types.
-
-4. Detect missing, duplicate, invalid or inconsistent records.
-
-5. Clean and standardise valid records using Python.
-
-6. Load source data into PostgreSQL staging tables.
-
-7. Transform source records into analytics-ready fact and dimension tables.
-
-8. Reconcile billed amounts, payments, adjustments and outstanding balances.
-
-9. Calculate healthcare revenue-cycle KPIs.
-
-10. Analyse accounts-receivable aging and collection performance.
-
-11. Analyse denial volume, value, causes and recovery results.
-
-12. Identify possible underpayments and financial differences.
-
-13. Calculate a priority score for claims requiring follow-up.
-
-14. Recommend an appropriate action for high-priority claims.
-
-15. Create interactive executive and operational Power BI dashboards.
-
-16. Record pipeline runs, processed records, rejected records and errors.
-
-17. Demonstrate how the complete process can run automatically.
+RevenueGuard will combine data-quality validation, financial analysis and business prioritization in one analytical workflow.
 
 ---
 
-## 6. Project Scope
+## 3. Project Objectives
 
-### 6.1 Included in the First Version
+RevenueGuard should answer five major questions:
 
-The first version will include:
+### Revenue Performance
 
-* Synthetic healthcare data generation
-* CSV-file ingestion
-* Python data cleaning
-* Python data validation
-* PostgreSQL staging tables
-* PostgreSQL analytics tables
-* Fact and dimension modelling
-* SQL transformations
-* Accounts-receivable aging analysis
-* Claims and payment reconciliation
-* Denial analysis
-* Payer-performance analysis
-* Provider-performance analysis
-* Rule-based claim-priority scoring
-* Recommended follow-up actions
-* Pipeline audit logging
-* Data-quality reporting
-* Power BI dashboards
-* Python unit tests
-* GitHub documentation
+- How much was billed?
+- How much was allowed?
+- How much was paid?
+- How much remains outstanding?
+- What is the collection rate?
+- How is revenue changing over time?
 
-### 6.2 Not Included in the First Version
+### Accounts Receivable
 
-The first version will not include:
+- How much AR exists?
+- What is the AR aging distribution?
+- Which claims are old?
+- Which payers have the most outstanding AR?
+- Which providers have large outstanding balances?
+- Which claims are approaching filing limits?
 
-* Real patient information
-* Real employer or client information
-* Production healthcare-system connections
-* Medical advice
-* Automated claim submission
-* Automated payer communication
-* A production machine-learning model
-* A production cloud deployment
-* Real-time streaming data
+### Denials
 
-These may be considered as future improvements after the main system is complete.
+- What is the denial rate?
+- What is the total denied amount?
+- Which denial categories are most common?
+- Which payers have higher denial rates?
+- Which providers show unusual denial patterns?
+- Are denials increasing or decreasing?
+- How successful are appeals?
+- How much denied revenue has been recovered?
 
----
+### Payments
 
-## 7. Target Users
+- How much has been paid?
+- How long does payment take?
+- Are there possible underpayments?
+- Are there possible overpayments?
+- Are there negative payments?
+- Are there duplicate payments?
+- Are there payments without valid claims?
+- Are payment amounts consistent with claim values?
 
-### 7.1 Chief Financial Officer
+### Data Quality
 
-The Chief Financial Officer needs a high-level view of financial performance.
-
-The system should help the CFO understand:
-
-* Total billed value
-* Total collected value
-* Total outstanding accounts receivable
-* Collection rate
-* Denial value
-* Recovery opportunities
-* Aging risk
-* Payer-performance trends
-* Financial reconciliation differences
-
-### 7.2 Revenue-Cycle Manager
-
-The Revenue-Cycle Manager needs to monitor operational and financial performance.
-
-The system should help the manager understand:
-
-* Which payers are causing delays
-* Which denial categories are increasing
-* Which teams or providers require support
-* Which claims should be prioritised
-* Whether collection performance is improving
-* Whether the processing pipeline completed successfully
-* Whether data-quality problems are affecting reports
-
-### 7.3 Accounts-Receivable Analyst
-
-The Accounts-Receivable Analyst needs a clear and prioritised worklist.
-
-The system should help the analyst identify:
-
-* High-value unpaid claims
-* Claims older than 90 or 120 days
-* Claims approaching filing deadlines
-* Claims with unresolved denials
-* Claims with possible underpayments
-* Claims without recent follow-up
-* The recommended next action for each claim
-
-### 7.4 Billing Manager
-
-The Billing Manager needs to understand billing and denial problems.
-
-The system should help the manager identify:
-
-* Common rejection and denial reasons
-* Preventable denial categories
-* Problems related to eligibility or authorisation
-* Provider or procedure groups with high denial rates
-* Claims requiring correction or resubmission
-* Changes in first-pass acceptance performance
-
-### 7.5 Data Analyst
-
-The Data Analyst needs reliable, documented and reusable data.
-
-The system should help the analyst:
-
-* Access clean analytics tables
-* Validate row counts
-* investigate data-quality failures
-* Reconcile financial values
-* Develop and maintain SQL queries
-* Create KPI definitions
-* Build Power BI reports
-* Monitor pipeline execution
-* Perform ad hoc analysis
+- Are required IDs missing?
+- Are duplicate claims present?
+- Are relationships broken?
+- Are dates logically valid?
+- Are negative or impossible amounts present?
+- Are denial records incomplete?
+- Are payments attached to nonexistent claims?
 
 ---
 
-## 8. Business Questions
+## 4. Action Center
 
-### Business Question 1
+RevenueGuard will include an Action Center that prioritizes records requiring investigation.
 
-**How much outstanding accounts receivable does the organisation have, and how is it distributed across aging buckets?**
+Examples:
 
-The system should show outstanding balances for:
+- claims approaching filing limits
+- high-value outstanding claims
+- unusual denial increases
+- possible underpayments
+- duplicate payments
+- orphan payments
+- suspicious adjustments
+- critical data-quality failures
 
-* 0–30 days
-* 31–60 days
-* 61–90 days
-* 91–120 days
-* More than 120 days
+Each issue should eventually include:
 
-### Business Question 2
+- record ID
+- issue type
+- severity
+- financial exposure
+- reason for flag
+- recommended investigation
 
-**Which payers, providers and denial categories are responsible for the largest denied value?**
+The Action Center should help answer:
 
-The system should identify:
-
-* Payers with high denial rates
-* Providers with high denial rates
-* Denial categories with high financial impact
-* Changes in denial performance over time
-
-### Business Question 3
-
-**Which claims should accounts-receivable analysts work on first?**
-
-The system should prioritise claims using factors such as:
-
-* Outstanding balance
-* Days in accounts receivable
-* Denial status
-* Filing-deadline risk
-* Time since the last follow-up
-* Possible underpayment
-* Expected recovery opportunity
-
-### Business Question 4
-
-**Do claim balances reconcile correctly with payments and adjustments?**
-
-The system should compare:
-
-* Billed amount
-* Allowed amount
-* Insurance payment
-* Patient payment
-* Contractual adjustment
-* Other adjustment
-* Expected outstanding balance
-* Source outstanding balance
-
-It should identify missing payments, possible underpayments, duplicate payments and material reconciliation differences.
-
-### Business Question 5
-
-**Is the analytics pipeline producing complete, accurate and reliable data?**
-
-The system should report:
-
-* Number of files processed
-* Number of records received
-* Number of records loaded
-* Number of records rejected
-* Data-quality pass percentage
-* Failed validation rules
-* Pipeline status
-* Pipeline duration
-* Last successful run
+"What should the analyst investigate first?"
 
 ---
 
-## 9. Key Performance Indicators
+## 5. Target Users
 
-The first version should calculate the following KPIs:
+Possible users include:
 
-* Total billed amount
-* Total allowed amount
-* Total paid amount
-* Total outstanding accounts receivable
-* Collection rate
-* Denial rate
-* Denied amount
-* Recovery rate
-* Average days in accounts receivable
-* Accounts receivable over 90 days
-* Accounts receivable over 120 days
-* First-pass acceptance rate
-* Appeal success rate
-* Average denial-resolution time
-* Underpayment opportunity
-* Reconciliation variance
-* High-priority claim count
-* Data-quality pass rate
-* Rejected-record count
-* Pipeline-processing duration
+- Data Analysts
+- Revenue Analysts
+- Business Intelligence Analysts
+- Revenue Cycle Analysts
+- Finance Analysts
+- Operations Analysts
+- Reporting Analysts
+- Revenue Cycle Managers
 
 ---
 
-## 10. Data Requirements
+## 6. Technology Stack
 
-The project will use only synthetic data.
-
-The planned dataset will contain approximately:
-
-* 50,000 to 100,000 claims
-* 5,000 synthetic patients
-* 15 to 25 payers
-* 20 to 40 providers
-* Multiple healthcare facilities
-* Multiple medical specialties
-* 12 to 24 months of activity
-* Claims, payments, denials and adjustments
-* Deliberately created data-quality problems
-
-No real patient, client, company or employer information will be used.
+- Python
+- Pandas
+- NumPy
+- Faker
+- PostgreSQL
+- SQL
+- Power BI
+- Power Query
+- DAX
+- Git
+- GitHub
 
 ---
 
-## 11. Functional Requirements
+## 7. Data Architecture
 
-The system must be able to:
+The project contains four PostgreSQL schemas:
 
-1. Find new CSV files in an incoming folder.
+### staging
 
-2. Confirm that each file contains the required columns.
+Raw incoming data.
 
-3. Reject empty, damaged or incorrectly structured files.
+The purpose of staging is to preserve source records before cleaning.
 
-4. Standardise column names and data formats.
+### analytics
 
-5. Validate dates, identifiers, status values and financial amounts.
+Cleaned and transformed data used for analysis.
 
-6. Separate valid and invalid records.
+### reporting
 
-7. Load valid records into PostgreSQL.
+Business-ready tables or views designed for Power BI and reporting.
 
-8. Store invalid records with a clear rejection reason.
+### audit
 
-9. Prevent the same file from being processed twice.
-
-10. Calculate business KPIs using SQL and Power BI.
-
-11. Produce a prioritised claim-follow-up worklist.
-
-12. Store the result of each pipeline run.
-
-13. Display data-quality and processing results in Power BI.
-
-14. Handle failures without losing previously processed data.
-
-15. Maintain logs that can be reviewed during troubleshooting.
+Data-quality failures, pipeline logs and validation history.
 
 ---
 
-## 12. Non-Functional Requirements
+## 8. Core Entities
 
-The system should be:
+RevenueGuard contains six main source entities:
 
-### Accurate
+- Patients
+- Providers
+- Payers
+- Claims
+- Payments
+- Denials
 
-Financial calculations and KPI results must be validated.
+The claim is the central transactional entity.
 
-### Repeatable
+Relationships:
 
-Running the same process with the same input should produce consistent results.
+Patient -> Claim
 
-### Maintainable
+Provider -> Claim
 
-Python and SQL code should be divided into clear files and functions.
+Payer -> Claim
 
-### Secure
+Claim -> Payment
 
-Database passwords and confidential values must not be stored directly in source-code files.
-
-### Auditable
-
-Every pipeline run should record its status, timing, row counts and errors.
-
-### Understandable
-
-Business rules, KPI definitions and database fields should be documented.
-
-### Scalable
-
-The design should support increasing the synthetic dataset from thousands to hundreds of thousands of records.
-
-### Testable
-
-Important validation, reconciliation and priority-scoring functions should have automated tests.
+Claim -> Denial
 
 ---
 
-## 13. Assumptions
+## 9. Project Success Criteria
 
-The project assumes that:
+The project will be considered successful when it can:
 
-* Input data is provided as CSV files.
-* PostgreSQL is available locally.
-* Power BI Desktop is available for dashboard development.
-* All healthcare data is synthetic.
-* Claims may have more than one payment.
-* Claims may have more than one denial event.
-* Financial values are recorded in U.S. dollars.
-* The first version will run locally.
-* Initial claim-priority scoring will use transparent business rules rather than machine learning.
-
----
-
-## 14. Constraints
-
-The project may be limited by:
-
-* No access to genuine healthcare-system data
-* No connection to a real electronic medical record system
-* No production payer integrations
-* Local-computer processing capacity
-* Power BI sharing and scheduled-refresh licensing
-* Limited time available for the first project version
-
-These constraints will be explained clearly in the final documentation.
-
----
-
-## 15. Risks and Controls
-
-### Risk: Sensitive data is accidentally used
-
-**Control:** Use only synthetic data and review files before publishing them.
-
-### Risk: Passwords are uploaded to GitHub
-
-**Control:** Store passwords in a local `.env` file and exclude that file using `.gitignore`.
-
-### Risk: Financial calculations are incorrect
-
-**Control:** Test calculations using manually verified sample claims.
-
-### Risk: Duplicate files are processed
-
-**Control:** Record file names and checksums in an audit table.
-
-### Risk: Invalid data enters reporting tables
-
-**Control:** Run validation rules before loading the analytics layer.
-
-### Risk: Dashboard values do not match SQL
-
-**Control:** Reconcile Power BI measures with SQL query outputs.
-
----
-
-## 16. Success Criteria
-
-The first version will be considered successful when:
-
-1. Synthetic claims, payment and denial data can be generated.
-
-2. Python can automatically detect and process an incoming CSV file.
-
-3. Invalid records are identified with understandable error messages.
-
-4. Valid records are loaded into PostgreSQL.
-
-5. Analytics-ready fact and dimension tables are created.
-
-6. Accounts-receivable balances reconcile correctly.
-
-7. At least five core business questions can be answered.
-
-8. A priority worklist is generated for AR analysts.
-
-9. Power BI displays executive and operational dashboards.
-
-10. Pipeline history and data-quality results are visible.
-
-11. Automated tests confirm important business calculations.
-
-12. Another person can follow the README and understand how the project works.
-
----
-
-## 17. Expected Deliverables
-
-The completed project will contain:
-
-* GitHub repository
-* Business requirements document
-* Architecture diagram
-* Data dictionary
-* Synthetic-data generator
-* Python data pipeline
-* PostgreSQL database scripts
-* SQL analytics queries
-* Data-quality framework
-* Reconciliation logic
-* Priority-scoring logic
-* Power BI dashboard
-* Automated tests
-* Pipeline logs
-* Dashboard screenshots
-* Setup instructions
-* Demonstration video
-* Project findings
-* Future-improvement plan
-
----
-
-## 18. Future Enhancements
-
-Possible future enhancements include:
-
-* Email alerts
-* Streamlit analyst application
-* FastAPI endpoints
-* Cloud database deployment
-* Automated Power BI refresh
-* Incremental data processing
-* Statistical anomaly detection
-* Machine-learning denial-risk prediction
-* Natural-language KPI summaries
-* Docker deployment
-
-These enhancements will only be started after the main end-to-end pipeline is complete.
+1. Generate realistic synthetic data.
+2. Load raw data into PostgreSQL.
+3. Detect deliberately injected data-quality problems.
+4. Transform valid data into an analytics layer.
+5. Calculate accurate business KPIs.
+6. Perform advanced SQL analysis.
+7. Analyse trends and anomalies using Python.
+8. Produce Power BI reporting.
+9. Prioritize important issues through the Action Center.
+10. Explain findings in clear business language.
