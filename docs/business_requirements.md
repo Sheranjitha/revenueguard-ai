@@ -361,3 +361,124 @@ Priority will eventually consider:
 - denial status
 - data-quality severity
 - anomaly indicators
+# RevenueGuard Data Dictionary
+
+## staging.patients
+
+Grain: One row represents one patient.
+
+| Column | Type | Description |
+|---|---|---|
+| patient_id | VARCHAR(50) | Patient identifier |
+| age_group | VARCHAR(20) | Patient age category |
+| gender | VARCHAR(20) | Patient gender |
+| city | VARCHAR(100) | Patient city |
+| state | VARCHAR(50) | Patient state |
+| zip_code | VARCHAR(20) | Postal code |
+| source_file | VARCHAR(255) | Original source filename |
+| loaded_at | TIMESTAMP | Record load timestamp |
+
+---
+
+## staging.providers
+
+Grain: One row represents one provider.
+
+| Column | Type | Description |
+|---|---|---|
+| provider_id | VARCHAR(50) | Provider identifier |
+| provider_name | VARCHAR(150) | Provider name |
+| specialty | VARCHAR(100) | Provider specialty |
+| facility_id | VARCHAR(50) | Facility identifier |
+| facility_name | VARCHAR(150) | Facility name |
+| city | VARCHAR(100) | Provider city |
+| state | VARCHAR(50) | Provider state |
+| source_file | VARCHAR(255) | Original source filename |
+| loaded_at | TIMESTAMP | Record load timestamp |
+
+---
+
+## staging.payers
+
+Grain: One row represents one payer.
+
+| Column | Type | Description |
+|---|---|---|
+| payer_id | VARCHAR(50) | Payer identifier |
+| payer_name | VARCHAR(150) | Payer name |
+| payer_type | VARCHAR(50) | Payer category |
+| filing_limit_days | INTEGER | Maximum filing period |
+| expected_payment_days | INTEGER | Expected payment turnaround |
+| source_file | VARCHAR(255) | Original source filename |
+| loaded_at | TIMESTAMP | Record load timestamp |
+
+---
+
+## staging.claims
+
+Grain: One row represents one claim.
+
+| Column | Type | Description |
+|---|---|---|
+| claim_id | VARCHAR(50) | Claim identifier |
+| patient_id | VARCHAR(50) | Related patient |
+| provider_id | VARCHAR(50) | Related provider |
+| payer_id | VARCHAR(50) | Related payer |
+| service_date | DATE | Date service occurred |
+| submission_date | DATE | Date claim submitted |
+| claim_status | VARCHAR(50) | Claim status |
+| procedure_code | VARCHAR(50) | Procedure identifier |
+| diagnosis_code | VARCHAR(50) | Diagnosis identifier |
+| billed_amount | NUMERIC(12,2) | Original billed value |
+| allowed_amount | NUMERIC(12,2) | Allowed claim value |
+| total_paid_amount | NUMERIC(12,2) | Source-reported paid amount |
+| contractual_adjustment | NUMERIC(12,2) | Contractual adjustment |
+| other_adjustment | NUMERIC(12,2) | Other adjustment |
+| patient_payment | NUMERIC(12,2) | Patient payment |
+| source_outstanding_amount | NUMERIC(12,2) | Source-reported outstanding balance |
+| last_follow_up_date | DATE | Last follow-up date |
+| filing_limit_date | DATE | Filing deadline |
+| source_file | VARCHAR(255) | Original source filename |
+| loaded_at | TIMESTAMP | Record load timestamp |
+
+---
+
+## staging.payments
+
+Grain: One row represents one payment transaction.
+
+| Column | Type | Description |
+|---|---|---|
+| payment_id | VARCHAR(50) | Payment identifier |
+| claim_id | VARCHAR(50) | Related claim |
+| payment_date | DATE | Payment date |
+| payment_amount | NUMERIC(12,2) | Payment amount |
+| adjustment_amount | NUMERIC(12,2) | Adjustment associated with payment |
+| payment_method | VARCHAR(50) | Payment method |
+| payment_reference | VARCHAR(100) | Transaction/reference number |
+| posting_status | VARCHAR(50) | Posting status |
+| source_file | VARCHAR(255) | Original source filename |
+| loaded_at | TIMESTAMP | Record load timestamp |
+
+---
+
+## staging.denials
+
+Grain: One row represents one denial event.
+
+| Column | Type | Description |
+|---|---|---|
+| denial_id | VARCHAR(50) | Denial identifier |
+| claim_id | VARCHAR(50) | Related claim |
+| denial_date | DATE | Date of denial |
+| denial_code | VARCHAR(50) | Denial code |
+| denial_category | VARCHAR(100) | Denial grouping |
+| denial_description | VARCHAR(255) | Denial description |
+| denial_amount | NUMERIC(12,2) | Amount denied |
+| appeal_status | VARCHAR(50) | Appeal status |
+| appeal_date | DATE | Appeal submission date |
+| resolution_date | DATE | Date denial was resolved |
+| resolution_status | VARCHAR(100) | Resolution result |
+| recovered_amount | NUMERIC(12,2) | Revenue recovered after denial |
+| source_file | VARCHAR(255) | Original source filename |
+| loaded_at | TIMESTAMP | Record load timestamp |
