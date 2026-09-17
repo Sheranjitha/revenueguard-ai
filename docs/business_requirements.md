@@ -230,3 +230,81 @@ The project will be considered successful when it can:
 8. Produce Power BI reporting.
 9. Prioritize important issues through the Action Center.
 10. Explain findings in clear business language.
+
+---------
+---
+
+## 10. Initial Data Quality Rules
+
+### Claims
+
+DQ001 - Missing claim ID
+Severity: Critical
+
+DQ002 - Duplicate claim ID
+Severity: Critical
+
+DQ003 - Missing payer ID
+Severity: High
+
+DQ004 - Missing provider ID
+Severity: High
+
+DQ005 - Missing patient ID
+Severity: High
+
+DQ006 - Submission date before service date
+Severity: High
+
+DQ007 - Invalid filing limit date
+Severity: High
+
+DQ008 - Negative billed amount
+Severity: Critical
+
+DQ009 - Allowed amount greater than billed amount
+Severity: Medium
+
+### Payments
+
+DQ010 - Missing payment ID
+Severity: Critical
+
+DQ011 - Duplicate payment ID
+Severity: Critical
+
+DQ012 - Missing claim ID
+Severity: Critical
+
+DQ013 - Payment linked to nonexistent claim
+Severity: Critical
+
+DQ014 - Negative payment amount
+Severity: High
+
+DQ015 - Suspicious payment amount greater than claim value
+Severity: High
+
+DQ016 - Duplicate payment transaction
+Severity: High
+
+### Denials
+
+DQ017 - Missing denial ID
+Severity: Critical
+
+DQ018 - Missing claim ID
+Severity: Critical
+
+DQ019 - Denial linked to nonexistent claim
+Severity: Critical
+
+DQ020 - Missing denial code
+Severity: Medium
+
+DQ021 - Resolution date before denial date
+Severity: High
+
+DQ022 - Negative denial amount
+Severity: High
+
